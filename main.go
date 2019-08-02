@@ -52,10 +52,9 @@ func main() {
 		if data == "r" || data == "r\n" {
 			time.Sleep(3 * time.Second)
 			cmd := exec.Command(appPath)
-			logger.Println(appPath, "233333")
-			err = cmd.Start()
+			err = cmd.Run()
 			if err != nil {
-				logger.Printf("Cmd.Start(): %s", err.Error())
+				logger.Printf("Cmd.Run(): %s", err.Error())
 			}else {
 				logger.Println("Restart OK.")
 			}
@@ -74,9 +73,9 @@ func main() {
 			}else {
 				logger.Println("Roll back ok")
 				cmd := exec.Command(appPath)
-				err = cmd.Start()
+				err = cmd.Run()
 				if err != nil {
-					logger.Printf("Cmd.Start(): %s", err.Error())
+					logger.Printf("Cmd.Run(): %s", err.Error())
 				}else {
 					logger.Println("Restart OK.")
 				}
